@@ -1,6 +1,7 @@
 package com.example.kimhe.myfirstapp;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -23,6 +24,12 @@ public class MainActivity extends AppCompatActivity {
         EditText editText = (EditText) findViewById(R.id.edit_message);
         String message = editText.getText().toString();
         intent.putExtra(EXTRA_MESSAGE, message);
+        startActivity(intent);
+    }
+
+    public void navigateWeb(View view){
+        Uri uri = Uri.parse("http://www.google.com"); // missing 'http://' will cause crashed
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         startActivity(intent);
     }
 
